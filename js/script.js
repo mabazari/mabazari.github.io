@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Language Data (Translations) ---
     const translations = {
-        siteTitle: { en: "Mohammad Sediq Abazari", fa: "محمدصادق اباذری" },
+        siteTitle: { en: "Mohammad Sediq Abazari", fa: "محمدصدیق اباذری" },
         navAbout: { en: "About", fa: "درباره من" },
         navEducation: { en: "Education", fa: "تحصیلات" },
         navResearch: { en: "Research", fa: "علایق پژوهشی" },
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         navSkills: { en: "Skills", fa: "مهارت‌ها" },
         navContact: { en: "Contact", fa: "تماس" },
         navCV: { en: "CV", fa: "رزومه" }, // Added translation for CV button
-        heroName: { en: "Mohammad Sediq Abazari, M.Sc.", fa: "محمدصادق اباذری، کارشناسی ارشد" },
+        heroName: { en: "Mohammad Sediq Abazari, M.Sc.", fa: "محمدصدیق اباذری، کارشناسی ارشد" },
         heroTitle: { en: "Aspiring PhD Candidate in Computer Science", fa: "داوطلب دکتری علوم کامپیوتر" },
         heroBio: { en: "Highly motivated and research-oriented Computer Engineer with a Master's degree from Ferdowsi University of Mashhad. Passionate about leveraging machine learning, network engineering, and data analysis to solve complex problems. Seeking a challenging PhD position to contribute to cutting-edge research in Computer Science.", fa: "مهندس کامپیوتر بسیار با انگیزه و پژوهش محور با مدرک کارشناسی ارشد از دانشگاه فردوسی مشهد. علاقه‌مند به استفاده از یادگیری ماشین، مهندسی شبکه و تحلیل داده برای حل مسائل پیچیده. به دنبال یک موقعیت چالش برانگیز دکتری برای مشارکت در تحقیقات پیشرفته در علوم کامپیوتر." },
         heroCTA: { en: "Get in Touch", fa: "ارتباط با من" },
@@ -82,16 +82,16 @@ document.addEventListener('DOMContentLoaded', () => {
         researchIoV: { en: "Internet of Vehicles (IoV)", fa: "اینترنت وسایل نقلیه (IoV)" },
         publicationsTitle: { en: "Publications", fa: "انتشارات" },
         pub1Title: { en: "Pruning and Mixed Precision Techniques for Accelerating Neural Network", fa: "تکنیک‌های هرس و دقت ترکیبی برای تسریع شبکه عصبی" },
-        pub1Authors: { en: "Authors: Mahsa Zahedi, Mohammad.s Abazari, Abdorreza Savadi.", fa: "نویسندگان: مهسا زاهدی، محمدصادق اباذری، عبدالرضا سوادی." },
+        pub1Authors: { en: "Authors: Mahsa Zahedi, Mohammad.s Abazari, Abdorreza Savadi.", fa: "نویسندگان: مهسا زاهدی، محمدصدیق اباذری، عبدالرضا سوادی." },
         pub1Venue: { en: "13th conference of ICCKE (IEEE supported). Accepted 9/2023.", fa: "سیزدهمین کنفرانس ICCKE (تحت حمایت IEEE). پذیرفته شده در ۹/۲۰۲۳." },
         pub2Title: { en: "Data center Energy Optimization through Request Type Analysis and Real-time Power Consumption Prediction", fa: "بهینه‌سازی انرژی مرکز داده از طریق تحلیل نوع درخواست و پیش‌بینی مصرف برق در زمان واقعی" },
-        pub2Authors: { en: "Authors: Mohammad.s Abazari, Mahsa Zahedi, Mohammad.h Yaghmaee.", fa: "نویسندگان: محمدصادق اباذری، مهسا زاهدی، محمدحسین یغمائی." },
+        pub2Authors: { en: "Authors: Mohammad.s Abazari, Mahsa Zahedi, Mohammad.h Yaghmaee.", fa: "نویسندگان: محمدصدیق اباذری، مهسا زاهدی، محمدحسین یغمائی." },
         pub2Venue: { en: "The 4th international Conference on Electronic Engineering, Computer, Mechanics and Artificial Intelligence. Accepted 10/2023.", fa: "چهارمین کنفرانس بین‌المللی مهندسی الکترونیک، کامپیوتر، مکانیک و هوش مصنوعی. پذیرفته شده در ۱۰/۲۰۲۳." },
         pub3Title: { en: "Energy Consumption Optimization of Data Centers in Intent-Based Networking by Network Assurance Engine", fa: "بهینه‌سازی مصرف انرژی مراکز داده در شبکه‌بندی مبتنی بر قصد توسط موتور تضمین شبکه" },
-        pub3Authors: { en: "Authors: Mohammad.s Abazari, Mohammad.h Yaghmaee.", fa: "نویسندگان: محمدصادق اباذری، محمدحسین یغمائی." },
+        pub3Authors: { en: "Authors: Mohammad.s Abazari, Mohammad.h Yaghmaee.", fa: "نویسندگان: محمدصدیق اباذری، محمدحسین یغمائی." },
         pub3Venue: { en: "Springer Journal of Energy Efficient. (Under Review)", fa: "مجله Springer Journal of Energy Efficient. (در دست بررسی)" },
         pub4Title: { en: "Enhancement of Performance and Tensor Network Pruning through Core-Based Matrix Compression", fa: "بهبود عملکرد و هرس شبکه تانسوری از طریق فشرده‌سازی ماتریس مبتنی بر هسته" },
-        pub4Authors: { en: "Authors: Mahsa Zahedi, Mohammad.s Abazari, Abdorreza Savadi.", fa: "نویسندگان: مهسا زاهدی، محمدصادق اباذری، عبدالرضا سوادی." },
+        pub4Authors: { en: "Authors: Mahsa Zahedi, Mohammad.s Abazari, Abdorreza Savadi.", fa: "نویسندگان: مهسا زاهدی، محمدصدیق اباذری، عبدالرضا سوادی." },
         pub4Venue: { en: "IEEE Transactions on Artificial Intelligence. (Under Review)", fa: "IEEE Transactions on Artificial Intelligence. (در دست بررسی)" },
         googleScholarLink: { en: "View on Google Scholar", fa: "مشاهده در گوگل اسکالر" },
         skillsTitle: { en: "Skills", fa: "مهارت‌ها" },
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
         contactTitle: { en: "Contact Me", fa: "تماس با من" },
         contactIntro: { en: "I'm actively seeking PhD opportunities and collaborations. Feel free to reach out!", fa: "من فعالانه به دنبال فرصت‌های دکتری و همکاری هستم. برای ارتباط با من راحت باشید!" },
         linkedinProfile: { en: "linkedin.com/in/mohammad-s-abazari", fa: "پروفایل لینکدین من" },
-        footerName: { en: "Mohammad Sediq Abazari", fa: "محمدصادق اباذری" },
+        footerName: { en: "Mohammad Sediq Abazari", fa: "محمدصدیق اباذری" },
         footerRights: { en: "All Rights Reserved.", fa: "تمامی حقوق محفوظ است." },
         footerLastUpdated: { en: "Last Updated:", fa: "آخرین بروزرسانی:" },
         footerDate: { en: "March 1, 2024", fa: "۱۱ اسفند ۱۴۰۲" }
