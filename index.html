@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammad Sediq Abazari - PhD Applicant</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script>
+        // Apply theme from localStorage on initial load
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="antialiased"> <header> <div class="container mx-auto px-4 sm:px-6 py-3 flex flex-col sm:flex-row justify-between items-center">
+            <h1 class="text-2xl font-bold mb-2 sm:mb-0" data-lang-key="siteTitle">Mohammad Sediq Abazari</h1>
+            <div class="flex items-center">
+                <nav class="space-x-1 sm:space-x-2 flex-wrap justify-center items-center">
+                    <a href="#about" class="active" data-lang-key="navAbout">About</a>
+                    <a href="#education" data-lang-key="navEducation">Education</a>
+                    <a href="#research" data-lang-key="navResearch">Research</a>
+                    <a href="#publications" data-lang-key="navPublications">Publications</a>
+                    <a href="#skills" data-lang-key="navSkills">Skills</a>
+                    <a href="#contact" data-lang-key="navContact">Contact</a>
+                    <a href="assets/CV_Mohammad_Abazari.pdf" download="CV_Mohammad_Sediq_Abazari.pdf" 
+                       class="ml-2 px-4 py-2 text-sm rounded-md transition-all duration-200 flex items-center shadow-sm hover:shadow-md transform hover:-translate-y-0.5" 
+                       data-lang-key="navCV">
+                       <span class="material-icons-outlined text-base mr-1.5">download</span>CV
+                    </a>
+                </nav>
+                <div class="flex items-center ml-3 sm:ml-5 space-x-2">
+                    <div class="lang-toggle flex items-center rounded-full p-0.5">
+                        <button id="langEn" title="English" class="px-3 py-1 text-sm">EN</button>
+                        <button id="langFa" title="فارسی" class="px-3 py-1 text-sm">FA</button>
+                    </div>
+                    <button id="themeToggle" class="theme-toggle-button p-2" title="Toggle theme">
+                        <span class="material-icons-outlined">dark_mode</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about"> <div class="container mx-auto px-6 text-center">
+            <img src="assets/images/profile.jpg" 
+                 alt="Mohammad Sediq Abazari" 
+                 class="w-36 h-36 md:w-44 md:h-44 rounded-full mx-auto mb-8 shadow-xl animate-fadeInUp" 
+                 style="animation-delay: 0.2s;"
+                 onerror="this.onerror=null; this.src='https://placehold.co/160x160/ECEFF4/4C566A?text=MSA&font=inter';">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 animate-fadeInUp" style="animation-delay: 0.4s;" data-lang-key="heroName">Mohammad Sediq Abazari, M.Sc.</h2>
+            <p class="text-xl md:text-2xl mb-8 animate-fadeInUp" style="animation-delay: 0.6s;" data-lang-key="heroTitle">Aspiring PhD Candidate in Computer Science</p>
+            <p class="max-w-3xl mx-auto mb-10 animate-fadeInUp text-lg" style="animation-delay: 0.8s;" data-lang-key="heroBio">
+                Highly motivated and research-oriented Computer Engineer with a Master's degree from Ferdowsi University of Mashhad. Passionate about leveraging machine learning, network engineering, and data analysis to solve complex problems. Seeking a challenging PhD position to contribute to cutting-edge research in Computer Science.
+            </p>
+            <a href="#contact" class="px-8 py-3.5 text-base rounded-md transition-all duration-300 transform hover:scale-105 animate-fadeInUp" style="animation-delay: 1s;" data-lang-key="heroCTA">Get in Touch</a>
+        </div>
+    </section>
+
+    <section id="education" class="py-20 md:py-28">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-center scroll-target text-3xl md:text-4xl mb-10 md:mb-12 relative pb-3" data-lang-key="educationTitle">Education</h2>
+            <div class="relative mt-12">
+                <div class="hidden md:block timeline-line"></div>
+                <div class="space-y-16">
+                    <div class="md:flex items-start relative scroll-target">
+                        <div class="md:w-1/2 md:pr-10 timeline-date-wrapper text-sm font-medium">
+                            <p class="md:text-right" data-lang-key="mscDate">09/2020 - 08/2023</p>
+                            <h3 class="text-xl font-semibold mt-1 md:text-right" data-lang-key="mscDegree">M.Sc. Computer Engineer (Network Engineer Branch)</h3>
+                            <p class="md:text-right" data-lang-key="mscUniversity">Ferdowsi University of Mashhad</p>
+                        </div>
+                        <div class="hidden md:block timeline-item mt-1.5"></div>
+                        <div class="md:w-1/2 md:pl-10 mt-6 md:mt-0 card timeline-content-wrapper p-6 md:p-8">
+                            <p class="font-semibold text-lg" data-lang-key="mscThesisLabel">Thesis:</p>
+                            <p class="mt-1" data-lang-key="mscThesisTitle">"Network assurance in intent-based Network by energy efficiency approach."</p>
+                            <p class="mt-3"><span class="font-semibold" data-lang-key="supervisorLabel">Supervisor:</span> <span data-lang-key="mscSupervisor">Mohammad Hossein Yaghmaee Moghaddam</span></p>
+                            <p class="mt-1"><span class="font-semibold" data-lang-key="gpaLabel">GPA:</span> <span data-lang-key="mscGPA">17.78 / 20 (Ranked 3rd)</span></p>
+                        </div>
+                    </div>
+
+                    <div class="md:flex items-start relative scroll-target">
+                         <div class="md:w-1/2 md:pr-10 timeline-date-wrapper text-sm font-medium">
+                            <p class="md:text-right" data-lang-key="bscDate">09/2015 - 02/2020</p>
+                            <h3 class="text-xl font-semibold mt-1 md:text-right" data-lang-key="bscDegree">B.Sc. Computer Engineer (Software Engineer)</h3>
+                            <p class="md:text-right" data-lang-key="bscUniversity">University of Bojnord</p>
+                        </div>
+                        <div class="hidden md:block timeline-item mt-1.5"></div>
+                        <div class="md:w-1/2 md:pl-10 mt-6 md:mt-0 card timeline-content-wrapper p-6 md:p-8">
+                            <p class="font-semibold text-lg" data-lang-key="bscProjectLabel">Final Project:</p>
+                            <p class="mt-1" data-lang-key="bscProjectTitle">"Health care system production and patient health data analysis."</p>
+                            <p class="mt-3"><span class="font-semibold" data-lang-key="supervisorLabel">Supervisor:</span> <span data-lang-key="bscSupervisor">Mehran Garmehi</span></p>
+                            <p class="mt-1"><span class="font-semibold" data-lang-key="gpaLabel">GPA:</span> <span data-lang-key="bscGPA">16.2 / 20 (Ranked 2nd)</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="research" class="py-20 md:py-28"> <div class="container mx-auto px-6">
+            <h2 class="section-title text-center scroll-target text-3xl md:text-4xl mb-10 md:mb-12 relative pb-3" data-lang-key="researchTitle">Research Interests</h2>
+            <div class="mt-10 flex flex-wrap justify-center gap-3 md:gap-4">
+                <span class="tag scroll-target" data-lang-key="researchML">Machine Learning</span>
+                <span class="tag scroll-target" data-lang-key="researchNN">Neural Networks</span>
+                <span class="tag scroll-target" data-lang-key="researchDL">Deep Learning</span>
+                <span class="tag scroll-target" data-lang-key="researchDM">Data Mining</span>
+                <span class="tag scroll-target" data-lang-key="researchCybersec">Cybersecurity</span>
+                <span class="tag scroll-target" data-lang-key="researchSE">Software Engineering</span>
+                <span class="tag scroll-target" data-lang-key="researchBigData">Big Data Analysis</span>
+                <span class="tag scroll-target" data-lang-key="researchNetworkArch">Future Network Architecture</span>
+                <span class="tag scroll-target" data-lang-key="researchDistributed">Distributed Systems</span>
+                <span class="tag scroll-target" data-lang-key="researchIoV">Internet of Vehicles (IoV)</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications" class="py-20 md:py-28">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-center scroll-target text-3xl md:text-4xl mb-10 md:mb-12 relative pb-3" data-lang-key="publicationsTitle">Publications</h2>
+            <div class="grid md:grid-cols-2 gap-6 md:gap-8 mt-10">
+                <div class="card scroll-target p-6 md:p-8">
+                    <h3 class="text-lg font-semibold" data-lang-key="pub1Title">Pruning and Mixed Precision Techniques for Accelerating Neural Network</h3>
+                    <p class="text-sm mt-1" data-lang-key="pub1Authors">Authors: Mahsa Zahedi, Mohammad.s Abazari, Abdorreza Savadi.</p>
+                    <p class="text-xs mt-2 opacity-75" data-lang-key="pub1Venue">13th conference of ICCKE (IEEE supported). Accepted 9/2023.</p>
+                </div>
+                <div class="card scroll-target p-6 md:p-8">
+                    <h3 class="text-lg font-semibold" data-lang-key="pub2Title">Data center Energy Optimization through Request Type Analysis and Real-time Power Consumption Prediction</h3>
+                    <p class="text-sm mt-1" data-lang-key="pub2Authors">Authors: Mohammad.s Abazari, Mahsa Zahedi, Mohammad.h Yaghmaee.</p>
+                    <p class="text-xs mt-2 opacity-75" data-lang-key="pub2Venue">The 4th international Conference on Electronic Engineering, Computer, Mechanics and Artificial Intelligence. Accepted 10/2023.</p>
+                </div>
+                <div class="card scroll-target p-6 md:p-8">
+                    <h3 class="text-lg font-semibold" data-lang-key="pub3Title">Energy Consumption Optimization of Data Centers in Intent-Based Networking by Network Assurance Engine</h3>
+                    <p class="text-sm mt-1" data-lang-key="pub3Authors">Authors: Mohammad.s Abazari, Mohammad.h Yaghmaee.</p>
+                    <p class="text-xs mt-2 opacity-75" data-lang-key="pub3Venue">Springer Journal of Energy Efficient. (Under Review)</p>
+                </div>
+                 <div class="card scroll-target p-6 md:p-8">
+                    <h3 class="text-lg font-semibold" data-lang-key="pub4Title">Enhancement of Performance and Tensor Network Pruning through Core-Based Matrix Compression</h3>
+                    <p class="text-sm mt-1" data-lang-key="pub4Authors">Authors: Mahsa Zahedi, Mohammad.s Abazari, Abdorreza Savadi.</p>
+                    <p class="text-xs mt-2 opacity-75" data-lang-key="pub4Venue">IEEE Transactions on Artificial Intelligence. (Under Review)</p>
+                </div>
+            </div>
+             <div class="text-center mt-12 scroll-target">
+                <a href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID" target="_blank" rel="noopener noreferrer" class="inline-flex items-center font-medium group">
+                    <span data-lang-key="googleScholarLink">View on Google Scholar</span>
+                    <span class="material-icons-outlined ml-1.5 group-hover:translate-x-1 transition-transform duration-200">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 md:py-28"> <div class="container mx-auto px-6">
+            <h2 class="section-title text-center scroll-target text-3xl md:text-4xl mb-10 md:mb-12 relative pb-3" data-lang-key="skillsTitle">Skills</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-10">
+                <div class="card scroll-target p-6 md:p-8">
+                    <h3 class="text-xl font-semibold mb-3 flex items-center"><span class="material-icons-outlined mr-2.5">code</span><span data-lang-key="skillsCoding">Coding Languages</span></h3>
+                    <p data-lang-key="skillsCodingList">Python, Java, Android, VHDL, PHP, HTML, CSS, Laravel, TeX</p>
+                </div>
+                <div class="card scroll-target p-6 md:p-8">
+                    <h3 class="text-xl font-semibold mb-3 flex items-center"><span class="material-icons-outlined mr-2.5">storage</span><span data-lang-key="skillsDatabases">Databases</span></h3>
+                    <p data-lang-key="skillsDatabasesList">MySQL, SQLite</p>
+                </div>
+                <div class="card scroll-target p-6 md:p-8">
+                    <h3 class="text-xl font-semibold mb-3 flex items-center"><span class="material-icons-outlined mr-2.5">language</span><span data-lang-key="skillsWebDev">Web Development</span></h3>
+                    <p data-lang-key="skillsWebDevList">HTML, CSS, JavaScript, Apache Web Server</p>
+                </div>
+                <div class="card scroll-target p-6 md:p-8">
+                    <h3 class="text-xl font-semibold mb-3 flex items-center"><span class="material-icons-outlined mr-2.5">build</span><span data-lang-key="skillsSoftware">Software & Tools</span></h3>
+                    <p data-lang-key="skillsSoftwareList">Anaconda, Jupyter Notebook, PyCharm, WebStorm, Visual Studio, Android Studio, Arduino IDE, Texmaker, Office Suite, Adobe Photoshop</p>
+                </div>
+                <div class="card scroll-target p-6 md:p-8">
+                    <h3 class="text-xl font-semibold mb-3 flex items-center"><span class="material-icons-outlined mr-2.5">translate</span><span data-lang-key="skillsLanguages">Languages</span></h3>
+                    <p><span data-lang-key="skillsLangPersion">Persian (Native)</span></p>
+                    <p><span data-lang-key="skillsLangEnglish">English (Duolingo: 135 - Literacy 145, Comprehension 140, Conversation 115, Production 105)</span></p>
+                </div>
+                <div class="card scroll-target p-6 md:p-8">
+                    <h3 class="text-xl font-semibold mb-3 flex items-center"><span class="material-icons-outlined mr-2.5">miscellaneous_services</span><span data-lang-key="skillsMisc">Miscellaneous</span></h3>
+                    <p data-lang-key="skillsMiscList">Academic Research, Teaching, Training, TeX Typesetting, Graphic Design, Network Configuration, PC Assembling</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 md:py-28">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-center scroll-target text-3xl md:text-4xl mb-10 md:mb-12 relative pb-3" data-lang-key="contactTitle">Contact Me</h2>
+            <div class="max-w-xl mx-auto mt-10 text-center">
+                <p class="text-lg mb-8 scroll-target" data-lang-key="contactIntro">
+                    I'm actively seeking PhD opportunities and collaborations. Feel free to reach out!
+                </p>
+                <div class="space-y-6">
+                    <p class="text-lg flex items-center justify-center scroll-target">
+                        <span class="material-icons-outlined mr-3">email</span>
+                        <a href="mailto:mohammads.abazari@mail.um.ac.ir" class="hover:text-[var(--accent-color)] transition-colors">mohammads.abazari@mail.um.ac.ir</a>
+                    </p>
+                    <p class="text-lg flex items-center justify-center scroll-target">
+                        <span class="material-icons-outlined mr-3">alternate_email</span>
+                        <a href="mailto:mabazari16@gmail.com" class="hover:text-[var(--accent-color)] transition-colors">mabazari16@gmail.com</a>
+                    </p>
+                    <p class="text-lg flex items-center justify-center scroll-target">
+                        <span class="material-icons-outlined mr-3">link</span>
+                        <a href="https://www.linkedin.com/in/mohammad-s-abazari" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--accent-color)] transition-colors" data-lang-key="linkedinProfile">linkedin.com/in/mohammad-s-abazari</a>
+                    </p>
+                     <p class="text-lg flex items-center justify-center scroll-target">
+                        <span class="material-icons-outlined mr-3">phone</span>
+                        +98-9105818717
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer> <div class="container mx-auto px-6">
+            <p class="scroll-target">&copy; <span id="currentYear"></span> <span data-lang-key="footerName">Mohammad Sediq Abazari</span>. <span data-lang-key="footerRights">All Rights Reserved.</span></p>
+            <p class="text-sm mt-2 scroll-target opacity-75"><span data-lang-key="footerLastUpdated">Last Updated:</span> <span data-lang-key="footerDate">March 1, 2024</span></p>
+        </div>
+    </footer>
+
+    <script src="js/script.js" defer></script>
+
+</body>
+</html>
