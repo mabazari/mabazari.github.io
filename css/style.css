@@ -1,24 +1,24 @@
 /* --- Theme Variables --- */
 :root {
     /* Nordic Night - Light Mode */
-    --color-primary-light: #4c566a; /* Nord4 - Darker Gray Blue (for text, borders) */
-    --color-secondary-light: #5e81ac; /* Nord9 - Frost Blue (accents) */
-    --color-accent-light: #88c0d0; /* Nord8 - Frost Light Blue (lighter accents) */
-    --color-bg-main-light: #eceff4; /* Nord6 - Snow Storm (main background) */
-    --color-bg-card-light: #e5e9f0; /* Nord5 - Snow Storm Light (card background) */
-    --color-text-strong-light: #2e3440; /* Nord0 - Polar Night Darkest (strong text) */
-    --color-text-muted-light: #4c566a; /* Nord4 - (muted text) */
-    --color-border-light: #d8dee9; /* Nord4 - Light Gray (borders) */
+    --color-primary-light: #4c566a; /* Nord4 */
+    --color-secondary-light: #5e81ac; /* Nord9 */
+    --color-accent-light: #88c0d0; /* Nord8 */
+    --color-bg-main-light: #eceff4; /* Nord6 */
+    --color-bg-card-light: #e5e9f0; /* Nord5 */
+    --color-text-strong-light: #2e3440; /* Nord0 */
+    --color-text-muted-light: #4c566a; /* Nord4 */
+    --color-border-light: #d8dee9; /* Nord4 */
 
     /* Nordic Night - Dark Mode */
-    --color-primary-dark: #d8dee9; /* Nord4 - Light Gray (for text, borders) */
-    --color-secondary-dark: #81a1c1; /* Nord10 - Frost Darker Blue (accents) */
-    --color-accent-dark: #8fbcbb; /* Nord7 - Aurora Greenish Cyan (lighter accents) */
-    --color-bg-main-dark: #2e3440; /* Nord0 - Polar Night Darkest (main background) */
-    --color-bg-card-dark: #3b4252; /* Nord1 - Polar Night Darker (card background) */
-    --color-text-strong-dark: #eceff4; /* Nord6 - Snow Storm (strong text) */
-    --color-text-muted-dark: #d8dee9; /* Nord4 - (muted text) */
-    --color-border-dark: #4c566a; /* Nord3 - Polar Night Light (borders) */
+    --color-primary-dark: #d8dee9; /* Nord4 */
+    --color-secondary-dark: #81a1c1; /* Nord10 */
+    --color-accent-dark: #8fbcbb; /* Nord7 */
+    --color-bg-main-dark: #2e3440; /* Nord0 */
+    --color-bg-card-dark: #3b4252; /* Nord1 */
+    --color-text-strong-dark: #eceff4; /* Nord6 */
+    --color-text-muted-dark: #d8dee9; /* Nord4 */
+    --color-border-dark: #4c566a; /* Nord3 */
 
     /* Shared */
     --font-body: 'Inter', sans-serif;
@@ -30,8 +30,21 @@
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
 
-    --header-height: 70px; /* Define header height for body padding */
+    /* Updated header height variable based on typical content */
+    --header-height: 65px; /* Adjusted from 70px - check final rendered height */
 }
+/* Adjust header height for smaller screens if nav wraps and increases height */
+@media (max-width: 639px) { /* sm breakpoint */
+    /* This might need dynamic calculation if nav wrap height is variable. 
+       For now, assuming a max height or let CSS handle fixed height.
+       The flex-col on header container should handle content stacking.
+       The body padding might need adjustment if header grows significantly.
+       Using a min-height on header can be an alternative to a fixed height.
+    */
+   /* Example: If header might grow to ~100px on very small screens due to wrapping */
+   /* :root { --header-height: 100px; } */
+}
+
 
 /* Apply theme variables */
 :root {
@@ -42,7 +55,7 @@
     --card-bg: var(--color-bg-card-light);
     --accent-color: var(--color-secondary-light);
     --border-color: var(--color-border-light);
-    --header-bg-light: rgba(236, 239, 244, 0.85); /* Nord6 with alpha for light header */
+    --header-bg-light: rgba(236, 239, 244, 0.85); 
 }
 
 .dark {
@@ -53,7 +66,7 @@
     --card-bg: var(--color-bg-card-dark);
     --accent-color: var(--color-secondary-dark);
     --border-color: var(--color-border-dark);
-    --header-bg-dark: rgba(46, 52, 64, 0.85); /* Nord0 with alpha for dark header */
+    --header-bg-dark: rgba(46, 52, 64, 0.85); 
 }
 
 /* --- Base Styles --- */
@@ -69,7 +82,7 @@ body {
     color: var(--text-primary);
     transition: background-color 0.3s ease, color 0.3s ease;
     line-height: 1.6;
-    padding-top: var(--header-height); /* Add padding to body for fixed header */
+    padding-top: var(--header-height); 
 }
 
 body.rtl-layout {
@@ -77,30 +90,14 @@ body.rtl-layout {
     font-family: 'Vazirmatn', sans-serif; 
 }
 
-/* --- Animations --- */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(25px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-@keyframes subtleScale {
-    from { transform: scale(0.98); opacity: 0.8;}
-    to { transform: scale(1); opacity: 1;}
-}
+/* --- Animations (No changes needed for responsiveness) --- */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes subtleScale { from { transform: scale(0.98); opacity: 0.8;} to { transform: scale(1); opacity: 1;} }
+.animate-fadeInUp { animation: fadeInUp 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; opacity: 0; }
+.animate-fadeIn { animation: fadeIn 0.9s ease-out forwards; opacity: 0; }
 
-.animate-fadeInUp {
-    animation: fadeInUp 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-    opacity: 0;
-}
-.animate-fadeIn {
-    animation: fadeIn 0.9s ease-out forwards;
-    opacity: 0;
-}
-
-/* --- Section Title --- */
+/* --- Section Title (Responsive text size in HTML via Tailwind) --- */
 .section-title {
     font-family: var(--font-heading);
     font-weight: 700; 
@@ -108,100 +105,61 @@ body.rtl-layout {
     letter-spacing: -0.025em; 
 }
 .section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -4px; 
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background-color: var(--accent-color);
-    border-radius: var(--border-radius-sm);
+    content: ''; position: absolute; bottom: -4px; left: 50%;
+    transform: translateX(-50%); width: 60px; height: 3px;
+    background-color: var(--accent-color); border-radius: var(--border-radius-sm);
     animation: growLine 0.8s ease-out forwards;
 }
-.rtl-layout .section-title::after {
-    left: auto;
-    right: 50%;
-    transform: translateX(50%);
-}
-@keyframes growLine {
-    from { width: 0; opacity: 0; }
-    to { width: 60px; opacity: 1; }
-}
+.rtl-layout .section-title::after { left: auto; right: 50%; transform: translateX(50%); }
+@keyframes growLine { from { width: 0; opacity: 0; } to { width: 60px; opacity: 1; } }
 
-/* --- Card Styling --- */
+/* --- Card Styling (Inherently responsive with grid in HTML) --- */
 .card {
-    background-color: var(--card-bg);
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--border-color);
+    background-color: var(--card-bg); border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md); border: 1px solid var(--border-color);
     transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
                 box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
                 border-color 0.3s ease;
 }
-.card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--accent-color);
-}
+.card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--accent-color); }
 
-/* --- Tag Styling --- */
+/* --- Tag Styling (Responsive padding/font via Tailwind if needed) --- */
 .tag {
     background-color: var(--accent-color) !important; 
     color: var(--color-bg-main-light) !important; 
-    border-radius: var(--border-radius-md);
-    font-weight: 500; 
-    padding: 0.5rem 1rem; 
+    border-radius: var(--border-radius-md); font-weight: 500; 
+    /* Padding is set by Tailwind in HTML. Can add responsive padding here if needed. */
+    /* e.g. padding: 0.4rem 0.8rem; @media (min-width: 640px) { padding: 0.5rem 1rem; } */
     transition: transform 0.2s ease-out, background-color 0.2s ease;
 }
-.dark .tag {
-    background-color: var(--color-accent-dark) !important;
-    color: var(--color-bg-main-dark) !important;
-}
-.tag:hover {
-    transform: translateY(-2px) scale(1.03);
-    filter: brightness(1.1);
-}
+.dark .tag { background-color: var(--color-accent-dark) !important; color: var(--color-bg-main-dark) !important; }
+.tag:hover { transform: translateY(-2px) scale(1.03); filter: brightness(1.1); }
 
 /* --- Navigation & Header --- */
-header.fixed-header { /* New class for fixed header */
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 50;
-    background-color: var(--header-bg-light); /* Use RGBA for transparency */
-    backdrop-filter: blur(10px); /* Optional: adds a blur effect to content behind header */
-    -webkit-backdrop-filter: blur(10px); /* For Safari */
+header.fixed-header { 
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background-color: var(--header-bg-light); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
     box-shadow: var(--shadow-sm);
     border-bottom: 1px solid var(--border-color);
     transition: background-color 0.3s ease, border-color 0.3s ease;
-    height: var(--header-height); /* Set fixed height */
-    display: flex; /* To vertically align content if needed, though container does this */
-    align-items: center; /* Vertically align items within the header */
+    height: auto; /* Allow height to adjust based on content (for wrapping nav) */
+    min-height: var(--header-height); /* Ensure a minimum height */
+    /* display: flex and align-items are on the inner container in HTML */
 }
-.dark header.fixed-header {
-    background-color: var(--header-bg-dark); /* Use RGBA for transparency */
-}
+.dark header.fixed-header { background-color: var(--header-bg-dark); }
 
 
 nav a {
-    color: var(--text-secondary);
-    font-weight: 500; 
-    padding: 0.5rem 0.75rem; 
+    color: var(--text-secondary); font-weight: 500; 
+    /* Responsive padding/text size in HTML */
     border-radius: var(--border-radius-sm);
     transition: color 0.2s ease, background-color 0.2s ease;
-    position: relative;
+    position: relative; display: inline-block; /* Ensures padding is respected well */
 }
-nav a:hover {
-    color: var(--accent-color);
-    background-color: rgba(var(--accent-color-rgb, 94, 129, 172), 0.1); 
-}
-nav a.active {
-    color: var(--accent-color);
-    font-weight: 600; 
-    background-color: rgba(var(--accent-color-rgb, 94, 129, 172), 0.15);
-}
+nav a:hover { color: var(--accent-color); background-color: rgba(var(--accent-color-rgb, 94, 129, 172), 0.1); }
+nav a.active { color: var(--accent-color); font-weight: 600; background-color: rgba(var(--accent-color-rgb, 94, 129, 172), 0.15); }
 :root { --accent-color-rgb: 94, 129, 172; } 
 .dark { --accent-color-rgb: 129, 161, 193; } 
 
@@ -210,144 +168,74 @@ nav a[download] {
     background-color: var(--accent-color);
     color: var(--color-bg-main-light) !important; 
     box-shadow: var(--shadow-sm);
+    /* Responsive padding/text size in HTML */
 }
-.dark nav a[download] {
-    color: var(--color-bg-main-dark) !important;
-}
-nav a[download]:hover {
-    background-color: var(--accent-color); 
-    filter: brightness(1.1);
-    color: var(--color-bg-main-light) !important;
-}
-.dark nav a[download]:hover {
-    color: var(--color-bg-main-dark) !important;
-}
+.dark nav a[download] { color: var(--color-bg-main-dark) !important; }
+nav a[download]:hover { background-color: var(--accent-color); filter: brightness(1.1); color: var(--color-bg-main-light) !important; }
+.dark nav a[download]:hover { color: var(--color-bg-main-dark) !important; }
 
 
-/* --- Timeline --- */
+/* --- Timeline (Responsive stacking via md:flex in HTML) --- */
 .timeline-item::before {
-    content: '';
-    position: absolute;
-    top: 8px;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background-color: var(--accent-color);
-    border: 3px solid var(--bg-secondary); 
-    z-index: 1;
+    content: ''; position: absolute; top: 8px; width: 14px; height: 14px;
+    border-radius: 50%; background-color: var(--accent-color);
+    border: 3px solid var(--bg-secondary);  z-index: 1;
     transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
-.timeline-item:hover::before {
-    transform: scale(1.25);
-}
+.timeline-item:hover::before { transform: scale(1.25); }
 body:not(.rtl-layout) .timeline-item::before { left: -26px; }
 body.rtl-layout .timeline-item::before { right: -26px; left: auto; }
 
 .timeline-line {
-    position: absolute;
-    top: 8px;
-    bottom: 0;
-    width: 2px;
+    position: absolute; top: 8px; bottom: 0; width: 2px;
     background-color: var(--border-color);
     transition: background-color 0.3s ease;
 }
 body:not(.rtl-layout) .timeline-line { left: -20px; }
 body.rtl-layout .timeline-line { right: -20px; left: auto; }
 
-/* --- Buttons (Theme & Lang) --- */
+/* --- Buttons (Theme & Lang) (Responsive padding/text size in HTML) --- */
 .theme-toggle-button,
 .lang-toggle button {
-    color: var(--text-secondary);
-    border-radius: var(--border-radius-md);
+    color: var(--text-secondary); border-radius: var(--border-radius-md);
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 .theme-toggle-button:hover,
-.lang-toggle button:hover {
-    background-color: rgba(var(--accent-color-rgb), 0.1);
-    color: var(--accent-color);
-}
-.lang-toggle button.font-semibold { 
-    background-color: var(--accent-color);
-    color: var(--color-bg-main-light) !important; 
-}
-.dark .lang-toggle button.font-semibold {
-    color: var(--color-bg-main-dark) !important;
-}
+.lang-toggle button:hover { background-color: rgba(var(--accent-color-rgb), 0.1); color: var(--accent-color); }
+.lang-toggle button.font-semibold { background-color: var(--accent-color); color: var(--color-bg-main-light) !important; }
+.dark .lang-toggle button.font-semibold { color: var(--color-bg-main-dark) !important; }
 
-.material-icons-outlined {
-    vertical-align: middle;
-    font-size: 1.25em; 
-}
-nav a[download] .material-icons-outlined {
-    font-size: 1.1em; 
-}
+.material-icons-outlined { vertical-align: middle; /* Responsive font size in HTML */ }
+nav a[download] .material-icons-outlined { /* Responsive font size in HTML */ }
 
-/* --- Hero Section --- */
+/* --- Hero Section (Responsive text/image sizes in HTML) --- */
 #about {
     background: linear-gradient(145deg, var(--bg-secondary) 0%, var(--color-bg-card-light) 100%);
     color: var(--text-primary) !important; 
-    padding-top: 6rem; 
-    padding-bottom: 6rem;
+    /* Responsive padding in HTML or here if more control needed */
 }
-.dark #about {
-    background: linear-gradient(145deg, var(--bg-secondary) 0%, var(--color-bg-card-dark) 100%);
-    color: var(--text-primary) !important;
-}
-#about h2, #about p { 
-    color: var(--text-primary);
-}
-#about p:nth-of-type(1) { 
-    color: var(--text-secondary);
-}
-#about img { 
-    border-color: var(--accent-color) !important; 
-    box-shadow: 0 0 0 4px var(--bg-secondary), var(--shadow-lg); 
-}
+.dark #about { background: linear-gradient(145deg, var(--bg-secondary) 0%, var(--color-bg-card-dark) 100%); color: var(--text-primary) !important; }
+#about h2, #about p { color: var(--text-primary); }
+#about p:nth-of-type(1) { color: var(--text-secondary); } /* First paragraph (subtitle) */
+#about img { border-color: var(--accent-color) !important; box-shadow: 0 0 0 4px var(--bg-secondary), var(--shadow-lg); }
 #about a[href="#contact"] { 
-    background-color: var(--accent-color);
-    color: var(--color-bg-main-light) !important;
-    border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-md);
-    font-weight: 600;
+    background-color: var(--accent-color); color: var(--color-bg-main-light) !important;
+    border-radius: var(--border-radius-md); box-shadow: var(--shadow-md); font-weight: 600;
 }
-#about a[href="#contact"]:hover {
-    filter: brightness(1.1);
-    box-shadow: var(--shadow-lg);
-}
-.dark #about a[href="#contact"] {
-     color: var(--color-bg-main-dark) !important;
-}
+#about a[href="#contact"]:hover { filter: brightness(1.1); box-shadow: var(--shadow-lg); }
+.dark #about a[href="#contact"] { color: var(--color-bg-main-dark) !important; }
 
 
-/* --- Scroll Animations --- */
-.scroll-target {
-    opacity: 0;
-    transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-                transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.scroll-target.visible {
-    opacity: 1;
-    transform: translateY(0) translateX(0) !important;
-}
+/* --- Scroll Animations (No changes needed for responsiveness) --- */
+.scroll-target { opacity: 0; transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.scroll-target.visible { opacity: 1; transform: translateY(0) translateX(0) !important; }
 
-/* --- General Section Padding --- */
-section:not(#about) { 
-    padding-top: 5rem; 
-    padding-bottom: 5rem;
-}
-@media (min-width: 768px) { 
-    section:not(#about) {
-        padding-top: 7rem; 
-        padding-bottom: 7rem;
-    }
-}
+/* --- General Section Padding (Responsive padding in HTML via Tailwind) --- */
+section:not(#about) { /* py-16 sm:py-20 md:py-28 applied in HTML */ }
 
-/* --- Footer --- */
+/* --- Footer (Responsive text size in HTML) --- */
 footer {
-    background-color: var(--bg-primary);
-    color: var(--text-secondary);
+    background-color: var(--bg-primary); color: var(--text-secondary);
     border-top: 1px solid var(--border-color);
-    padding-top: 2.5rem; 
-    padding-bottom: 2.5rem;
+    /* py-8 or py-10 in HTML */
 }
-
