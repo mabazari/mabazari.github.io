@@ -22,24 +22,27 @@
 
     /* Shared */
     --font-body: 'Inter', sans-serif;
-    --font-heading: 'Inter', sans-serif; /* Using Inter for headings too for consistency, but could be different */
-    --border-radius-sm: 0.375rem; /* 6px */
-    --border-radius-md: 0.5rem; /* 8px */
-    --border-radius-lg: 0.75rem; /* 12px */
+    --font-heading: 'Inter', sans-serif; 
+    --border-radius-sm: 0.375rem; 
+    --border-radius-md: 0.5rem; 
+    --border-radius-lg: 0.75rem; 
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
+    --header-height: 70px; /* Define header height for body padding */
 }
 
 /* Apply theme variables */
 :root {
     --text-primary: var(--color-text-strong-light);
     --text-secondary: var(--color-text-muted-light);
-    --bg-primary: var(--color-bg-main-light); /* Header/Footer bg */
-    --bg-secondary: var(--color-bg-main-light); /* Body bg */
+    --bg-primary: var(--color-bg-main-light); 
+    --bg-secondary: var(--color-bg-main-light); 
     --card-bg: var(--color-bg-card-light);
     --accent-color: var(--color-secondary-light);
     --border-color: var(--color-border-light);
+    --header-bg-light: rgba(236, 239, 244, 0.85); /* Nord6 with alpha for light header */
 }
 
 .dark {
@@ -50,6 +53,7 @@
     --card-bg: var(--color-bg-card-dark);
     --accent-color: var(--color-secondary-dark);
     --border-color: var(--color-border-dark);
+    --header-bg-dark: rgba(46, 52, 64, 0.85); /* Nord0 with alpha for dark header */
 }
 
 /* --- Base Styles --- */
@@ -65,11 +69,12 @@ body {
     color: var(--text-primary);
     transition: background-color 0.3s ease, color 0.3s ease;
     line-height: 1.6;
+    padding-top: var(--header-height); /* Add padding to body for fixed header */
 }
 
 body.rtl-layout {
     direction: rtl;
-    font-family: 'Vazirmatn', sans-serif; /* Keep Vazirmatn for Persian */
+    font-family: 'Vazirmatn', sans-serif; 
 }
 
 /* --- Animations --- */
@@ -98,15 +103,14 @@ body.rtl-layout {
 /* --- Section Title --- */
 .section-title {
     font-family: var(--font-heading);
-    font-weight: 700; /* Bold */
+    font-weight: 700; 
     color: var(--text-primary);
-    letter-spacing: -0.025em; /* Slightly tighter */
-    /* Tailwind text-3xl md:text-4xl mb-10 md:mb-12 relative pb-3 */
+    letter-spacing: -0.025em; 
 }
 .section-title::after {
     content: '';
     position: absolute;
-    bottom: -4px; /* Adjusted position */
+    bottom: -4px; 
     left: 50%;
     transform: translateX(-50%);
     width: 60px;
@@ -143,11 +147,11 @@ body.rtl-layout {
 
 /* --- Tag Styling --- */
 .tag {
-    background-color: var(--accent-color) !important; /* Override Tailwind for consistent theme color */
-    color: var(--color-bg-main-light) !important; /* Text color that contrasts with accent */
+    background-color: var(--accent-color) !important; 
+    color: var(--color-bg-main-light) !important; 
     border-radius: var(--border-radius-md);
-    font-weight: 500; /* Medium */
-    padding: 0.5rem 1rem; /* Adjust padding */
+    font-weight: 500; 
+    padding: 0.5rem 1rem; 
     transition: transform 0.2s ease-out, background-color 0.2s ease;
 }
 .dark .tag {
@@ -159,46 +163,59 @@ body.rtl-layout {
     filter: brightness(1.1);
 }
 
-/* --- Navigation --- */
-header {
-    background-color: var(--bg-primary);
+/* --- Navigation & Header --- */
+header.fixed-header { /* New class for fixed header */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background-color: var(--header-bg-light); /* Use RGBA for transparency */
+    backdrop-filter: blur(10px); /* Optional: adds a blur effect to content behind header */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
     box-shadow: var(--shadow-sm);
     border-bottom: 1px solid var(--border-color);
     transition: background-color 0.3s ease, border-color 0.3s ease;
+    height: var(--header-height); /* Set fixed height */
+    display: flex; /* To vertically align content if needed, though container does this */
+    align-items: center; /* Vertically align items within the header */
 }
+.dark header.fixed-header {
+    background-color: var(--header-bg-dark); /* Use RGBA for transparency */
+}
+
+
 nav a {
     color: var(--text-secondary);
-    font-weight: 500; /* Medium */
-    padding: 0.5rem 0.75rem; /* Adjust padding */
+    font-weight: 500; 
+    padding: 0.5rem 0.75rem; 
     border-radius: var(--border-radius-sm);
     transition: color 0.2s ease, background-color 0.2s ease;
     position: relative;
 }
 nav a:hover {
     color: var(--accent-color);
-    background-color: rgba(var(--accent-color-rgb, 94, 129, 172), 0.1); /* Use RGB for opacity if accent is hex */
+    background-color: rgba(var(--accent-color-rgb, 94, 129, 172), 0.1); 
 }
 nav a.active {
     color: var(--accent-color);
-    font-weight: 600; /* Semibold */
+    font-weight: 600; 
     background-color: rgba(var(--accent-color-rgb, 94, 129, 172), 0.15);
 }
-/* Helper for accent-color-rgb (set this if your accent color changes) */
-:root { --accent-color-rgb: 94, 129, 172; } /* Corresponds to #5e81ac */
-.dark { --accent-color-rgb: 129, 161, 193; } /* Corresponds to #81a1c1 */
+:root { --accent-color-rgb: 94, 129, 172; } 
+.dark { --accent-color-rgb: 129, 161, 193; } 
 
 
-/* CV Button Specific Styling */
 nav a[download] {
     background-color: var(--accent-color);
-    color: var(--color-bg-main-light) !important; /* Ensure high contrast */
+    color: var(--color-bg-main-light) !important; 
     box-shadow: var(--shadow-sm);
 }
 .dark nav a[download] {
     color: var(--color-bg-main-dark) !important;
 }
 nav a[download]:hover {
-    background-color: var(--accent-color); /* Keep base color */
+    background-color: var(--accent-color); 
     filter: brightness(1.1);
     color: var(--color-bg-main-light) !important;
 }
@@ -216,7 +233,7 @@ nav a[download]:hover {
     height: 14px;
     border-radius: 50%;
     background-color: var(--accent-color);
-    border: 3px solid var(--bg-secondary); /* Create an inset effect */
+    border: 3px solid var(--bg-secondary); 
     z-index: 1;
     transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
@@ -249,9 +266,9 @@ body.rtl-layout .timeline-line { right: -20px; left: auto; }
     background-color: rgba(var(--accent-color-rgb), 0.1);
     color: var(--accent-color);
 }
-.lang-toggle button.font-semibold { /* Active language button */
+.lang-toggle button.font-semibold { 
     background-color: var(--accent-color);
-    color: var(--color-bg-main-light) !important; /* High contrast */
+    color: var(--color-bg-main-light) !important; 
 }
 .dark .lang-toggle button.font-semibold {
     color: var(--color-bg-main-dark) !important;
@@ -259,36 +276,34 @@ body.rtl-layout .timeline-line { right: -20px; left: auto; }
 
 .material-icons-outlined {
     vertical-align: middle;
-    font-size: 1.25em; /* Slightly larger icons */
+    font-size: 1.25em; 
 }
 nav a[download] .material-icons-outlined {
-    font-size: 1.1em; /* Slightly smaller for button icon */
+    font-size: 1.1em; 
 }
 
 /* --- Hero Section --- */
 #about {
-    /* Using a cleaner, less animated gradient for this theme */
     background: linear-gradient(145deg, var(--bg-secondary) 0%, var(--color-bg-card-light) 100%);
-    /* Tailwind text-white is overridden by body color, ensure text is readable */
-    color: var(--text-primary) !important; /* Important to override Tailwind's text-white */
-    padding-top: 6rem; /* More space from header */
+    color: var(--text-primary) !important; 
+    padding-top: 6rem; 
     padding-bottom: 6rem;
 }
 .dark #about {
     background: linear-gradient(145deg, var(--bg-secondary) 0%, var(--color-bg-card-dark) 100%);
     color: var(--text-primary) !important;
 }
-#about h2, #about p { /* Ensure hero text uses theme colors */
+#about h2, #about p { 
     color: var(--text-primary);
 }
-#about p:nth-of-type(1) { /* Subtitle */
+#about p:nth-of-type(1) { 
     color: var(--text-secondary);
 }
-#about img { /* Profile image border */
-    border-color: var(--accent-color) !important; /* Important to override Tailwind */
-    box-shadow: 0 0 0 4px var(--bg-secondary), var(--shadow-lg); /* Inset border effect + shadow */
+#about img { 
+    border-color: var(--accent-color) !important; 
+    box-shadow: 0 0 0 4px var(--bg-secondary), var(--shadow-lg); 
 }
-#about a[href="#contact"] { /* CTA Button */
+#about a[href="#contact"] { 
     background-color: var(--accent-color);
     color: var(--color-bg-main-light) !important;
     border-radius: var(--border-radius-md);
@@ -316,13 +331,13 @@ nav a[download] .material-icons-outlined {
 }
 
 /* --- General Section Padding --- */
-section:not(#about) { /* Exclude hero for its custom padding */
-    padding-top: 5rem; /* Default py-20 is 5rem */
+section:not(#about) { 
+    padding-top: 5rem; 
     padding-bottom: 5rem;
 }
-@media (min-width: 768px) { /* md breakpoint */
+@media (min-width: 768px) { 
     section:not(#about) {
-        padding-top: 7rem; /* Default md:py-28 is 7rem */
+        padding-top: 7rem; 
         padding-bottom: 7rem;
     }
 }
@@ -332,6 +347,7 @@ footer {
     background-color: var(--bg-primary);
     color: var(--text-secondary);
     border-top: 1px solid var(--border-color);
-    padding-top: 2.5rem; /* py-10 */
+    padding-top: 2.5rem; 
     padding-bottom: 2.5rem;
 }
+
