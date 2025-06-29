@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         navPublications: { en: "Publications", fa: "انتشارات" },
         navSkills: { en: "Skills", fa: "مهارت‌ها" },
         navContact: { en: "Contact", fa: "تماس" },
-        navCareer: { en: "Career", fa: "شغلی" },
+        navCareer: { en: "Career", fa: "مهارت شغلی" },
         navCV: { en: "CV", fa: "رزومه" },
         heroName: { en: "Mohammad Sediq Abazari, M.Sc.", fa: "محمدصدیق اباذری، کارشناسی ارشد" },
         heroTitle: { en: "Aspiring PhD Candidate in Computer Science", fa: "داوطلب دکتری علوم کامپیوتر" },
