@@ -10,15 +10,15 @@
     --color-text-muted-light: #4c566a; /* Nord4 */
     --color-border-light: #d8dee9; /* Nord4 */
 
-    /* Nordic Night - Dark Mode */
-    --color-primary-dark: #d8dee9; /* Nord4 */
-    --color-secondary-dark: #81a1c1; /* Nord10 */
-    --color-accent-dark: #8fbcbb; /* Nord7 */
-    --color-bg-main-dark: #2e3440; /* Nord0 */
-    --color-bg-card-dark: #3b4252; /* Nord1 */
-    --color-text-strong-dark: #eceff4; /* Nord6 */
-    --color-text-muted-dark: #d8dee9; /* Nord4 */
-    --color-border-dark: #4c566a; /* Nord3 */
+    /* GitHub-Inspired Dark Mode (from Career Page) */
+    --color-primary-dark: #c9d1d9;
+    --color-secondary-dark: #58a6ff;
+    --color-accent-dark: #79c0ff;
+    --color-bg-main-dark: #0d1117;
+    --color-bg-card-dark: #161b22;
+    --color-text-strong-dark: #c9d1d9;
+    --color-text-muted-dark: #8b949e;
+    --color-border-dark: #30363d;
 
     /* Shared */
     --font-body: 'Inter', sans-serif;
@@ -31,18 +31,11 @@
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
 
     /* Updated header height variable based on typical content */
-    --header-height: 65px; /* Adjusted from 70px - check final rendered height */
+    --header-height: 65px;
 }
 /* Adjust header height for smaller screens if nav wraps and increases height */
-@media (max-width: 639px) { /* sm breakpoint */
-    /* This might need dynamic calculation if nav wrap height is variable. 
-       For now, assuming a max height or let CSS handle fixed height.
-       The flex-col on header container should handle content stacking.
-       The body padding might need adjustment if header grows significantly.
-       Using a min-height on header can be an alternative to a fixed height.
-    */
-   /* Example: If header might grow to ~100px on very small screens due to wrapping */
-   /* :root { --header-height: 100px; } */
+@media (max-width: 639px) {
+   /* Dynamic padding is handled by JS, so this is less critical now */
 }
 
 
@@ -66,7 +59,7 @@
     --card-bg: var(--color-bg-card-dark);
     --accent-color: var(--color-secondary-dark);
     --border-color: var(--color-border-dark);
-    --header-bg-dark: rgba(46, 52, 64, 0.85); 
+    --header-bg-dark: rgba(13, 17, 23, 0.85); 
 }
 
 /* --- Base Styles --- */
@@ -82,7 +75,6 @@ body {
     color: var(--text-primary);
     transition: background-color 0.3s ease, color 0.3s ease;
     line-height: 1.6;
-    padding-top: var(--header-height); 
 }
 
 body.rtl-layout {
@@ -126,13 +118,14 @@ body.rtl-layout {
 /* --- Tag Styling (Responsive padding/font via Tailwind if needed) --- */
 .tag {
     background-color: var(--accent-color) !important; 
-    color: var(--color-bg-main-light) !important; 
+    color: #0d1117 !important; /* Use dark background color for text on accent */
     border-radius: var(--border-radius-md); font-weight: 500; 
-    /* Padding is set by Tailwind in HTML. Can add responsive padding here if needed. */
-    /* e.g. padding: 0.4rem 0.8rem; @media (min-width: 640px) { padding: 0.5rem 1rem; } */
     transition: transform 0.2s ease-out, background-color 0.2s ease;
 }
-.dark .tag { background-color: var(--color-accent-dark) !important; color: var(--color-bg-main-dark) !important; }
+.dark .tag { 
+    background-color: var(--color-accent-dark) !important; 
+    color: #0d1117 !important; 
+}
 .tag:hover { transform: translateY(-2px) scale(1.03); filter: brightness(1.1); }
 
 /* --- Navigation & Header --- */
@@ -144,35 +137,42 @@ header.fixed-header {
     box-shadow: var(--shadow-sm);
     border-bottom: 1px solid var(--border-color);
     transition: background-color 0.3s ease, border-color 0.3s ease;
-    height: auto; /* Allow height to adjust based on content (for wrapping nav) */
-    min-height: var(--header-height); /* Ensure a minimum height */
-    /* display: flex and align-items are on the inner container in HTML */
+    height: auto; 
+    min-height: var(--header-height);
 }
 .dark header.fixed-header { background-color: var(--header-bg-dark); }
 
 
 nav a {
     color: var(--text-secondary); font-weight: 500; 
-    /* Responsive padding/text size in HTML */
     border-radius: var(--border-radius-sm);
     transition: color 0.2s ease, background-color 0.2s ease;
-    position: relative; display: inline-block; /* Ensures padding is respected well */
+    position: relative; display: inline-block;
 }
 nav a:hover { color: var(--accent-color); background-color: rgba(var(--accent-color-rgb, 94, 129, 172), 0.1); }
 nav a.active { color: var(--accent-color); font-weight: 600; background-color: rgba(var(--accent-color-rgb, 94, 129, 172), 0.15); }
 :root { --accent-color-rgb: 94, 129, 172; } 
-.dark { --accent-color-rgb: 129, 161, 193; } 
+.dark { --accent-color-rgb: 88, 166, 255; } 
 
 
 nav a[download] {
     background-color: var(--accent-color);
     color: var(--color-bg-main-light) !important; 
     box-shadow: var(--shadow-sm);
-    /* Responsive padding/text size in HTML */
 }
-.dark nav a[download] { color: var(--color-bg-main-dark) !important; }
-nav a[download]:hover { background-color: var(--accent-color); filter: brightness(1.1); color: var(--color-bg-main-light) !important; }
-.dark nav a[download]:hover { color: var(--color-bg-main-dark) !important; }
+.dark nav a[download] { 
+    color: var(--color-bg-main-dark) !important;
+    background-color: var(--color-secondary-dark);
+}
+nav a[download]:hover { 
+    background-color: var(--accent-color); 
+    filter: brightness(1.1); 
+    color: var(--color-bg-main-light) !important; 
+}
+.dark nav a[download]:hover { 
+    color: var(--color-bg-main-dark) !important; 
+    background-color: var(--color-accent-dark);
+}
 
 
 /* --- Timeline (Responsive stacking via md:flex in HTML) --- */
@@ -205,14 +205,12 @@ body.rtl-layout .timeline-line { right: -20px; left: auto; }
 .lang-toggle button.font-semibold { background-color: var(--accent-color); color: var(--color-bg-main-light) !important; }
 .dark .lang-toggle button.font-semibold { color: var(--color-bg-main-dark) !important; }
 
-.material-icons-outlined { vertical-align: middle; /* Responsive font size in HTML */ }
-nav a[download] .material-icons-outlined { /* Responsive font size in HTML */ }
+.material-icons-outlined { vertical-align: middle; }
 
 /* --- Hero Section (Responsive text/image sizes in HTML) --- */
 #about {
     background: linear-gradient(145deg, var(--bg-secondary) 0%, var(--color-bg-card-light) 100%);
     color: var(--text-primary) !important; 
-    /* Responsive padding in HTML or here if more control needed */
 }
 .dark #about { background: linear-gradient(145deg, var(--bg-secondary) 0%, var(--color-bg-card-dark) 100%); color: var(--text-primary) !important; }
 #about h2, #about p { color: var(--text-primary); }
@@ -231,11 +229,10 @@ nav a[download] .material-icons-outlined { /* Responsive font size in HTML */ }
 .scroll-target.visible { opacity: 1; transform: translateY(0) translateX(0) !important; }
 
 /* --- General Section Padding (Responsive padding in HTML via Tailwind) --- */
-section:not(#about) { /* py-16 sm:py-20 md:py-28 applied in HTML */ }
+section:not(#about) { }
 
 /* --- Footer (Responsive text size in HTML) --- */
 footer {
     background-color: var(--bg-primary); color: var(--text-secondary);
     border-top: 1px solid var(--border-color);
-    /* py-8 or py-10 in HTML */
 }

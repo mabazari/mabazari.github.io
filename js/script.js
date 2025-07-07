@@ -10,6 +10,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentYearSpan = document.getElementById('currentYear');
     const pageLastUpdatedDateSpan = document.getElementById('pageLastUpdatedDate');
 
+    // --- Dynamic Body Padding for Fixed Header ---
+    function adjustBodyPadding() {
+        const header = document.querySelector('header.fixed-header');
+        if (header) {
+            const headerHeight = header.offsetHeight;
+            document.body.style.paddingTop = `${headerHeight}px`;
+        }
+    }
+
+    // Adjust padding on initial load and on window resize
+    window.addEventListener('load', adjustBodyPadding);
+    window.addEventListener('resize', adjustBodyPadding);
 
     // --- Theme Toggle Functionality ---
     function applyTheme(theme) {
