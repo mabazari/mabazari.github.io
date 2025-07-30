@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         skillsDatabases: { en: "Databases", fa: "پایگاه‌های داده" },
         skillsDatabasesList: { en: "MySQL, SQLite", fa: "MySQL، SQLite" },
         skillsWebDev: { en: "Web Development", fa: "توسعه وب" },
-        skillsWebDevList: { en: "HTML, CSS, JavaScript, Apache Web Server", fa: "HTML، CSS، جاوااسکریپت، وب سرور آپاچی" },
+        skillsWebDevList: { en: "HTML, CSS, JavaScript, 3js, Apache Web Server", fa: "HTML، CSS، جاوااسکریپت، 3js، وب سرور آپاچی" },
         skillsSoftware: { en: "Software & Tools", fa: "نرم‌افزارها و ابزارها" },
         skillsSoftwareList: { en: "Anaconda, Jupyter Notebook, PyCharm, WebStorm, Visual Studio, Android Studio, Arduino IDE, Texmaker, Office Suite, Adobe Photoshop", fa: "آناکوندا، ژوپیتر نوتبوک، پای‌چارم، وب‌استورم، ویژوال استودیو، اندروید استودیو، آردوینو IDE، تک‌میکر، مجموعه آفیس، ادوبی فتوشاپ" },
         skillsLanguages: { en: "Languages", fa: "زبان‌ها" },
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
         footerName: { en: "Mohammad Sediq Abazari", fa: "محمدصدیق اباذری" },
         footerRights: { en: "All Rights Reserved.", fa: "تمامی حقوق محفوظ است." },
         footerLastUpdated: { en: "Last Updated:", fa: "آخرین بروزرسانی:" },
-        footerDate: { en: "May 30, 2024", fa: "۱۰ خرداد ۱۴۰۳" } // Updated date
+        footerDate: { en: "July 30, 2025", fa: "۱۰ تیر ۱۴۰۴" } // Updated date
     };
 
     // --- Language Switcher Functionality ---
